@@ -3,19 +3,19 @@ const winningCombos = [
   [0, 1, 2],
   [3, 4, 5],
   [6 ,7, 8],
-  [0, 3, 5],
+  [0, 3, 6],
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
   [2, 4, 6],
 ]
 
+const player0 = -1
+const playerX = 1
 
 /*---------------------------- Variables (state) ----------------------------*/
 let squares, winner, turn
-// let gameOutcome = [tie, winner, loser]
-const player0 = -1
-const playerX = 1
+// let gameOutcome = [tie, winner, loser] 
 
 /*------------------------ Cached Element References ------------------------*/
 const boardSquares = document.querySelector(".board")
@@ -42,6 +42,7 @@ function  handleClick(event) {
   } 
 }
 
+
 init();
 
 function init(){
@@ -58,6 +59,10 @@ winner = null;
 render()
 }
 
+// function gameOutcome() {
+//   if (winningCombos )
+
+// }
 
 function render() {
 
@@ -73,11 +78,14 @@ function render() {
     }
   }
 }
-
-
 // if  (squares[i] === null)
 // boardSquares.children[i].textContent = ''
 //   else (boardSquares.children[i].textContent = '' )
     // if else statement could be good here
     //if the condition is true, then print a value to the board
+
+resetBtn.addEventListener('click', init)
+  render()
+
+
 
