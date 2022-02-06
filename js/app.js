@@ -10,13 +10,13 @@ const winningCombos = [
   [2, 4, 6],
 ]
 
+
 /*---------------------------- Variables (state) ----------------------------*/
 let squares, winner, turn
 // let playerTurn = [o,x]
 // let gameOutcome = [tie, winner, loser]
 const player0 = -1
 const playerX = 1
-//let winner = null
 
 /*------------------------ Cached Element References ------------------------*/
 const boardSquares = document.querySelector(".board")
@@ -67,13 +67,16 @@ function render() {
 
   for (let i = 0; i < squares.length; i++){
   // console.log(squares[i])
-  if (squares[i] === 1){
+    if (squares[i] === 1){
     boardSquares.children[i].textContent = 'x'
-  } else {
-    (squares[i] === -1)
+    } else if 
+    (squares[i] === -1) {
     boardSquares.children[i].textContent = '0'
+    } else {
+    boardSquares.children[i].textContent = ""
+    }
   }
-
+}
 
 
 // if  (squares[i] === null)
@@ -81,9 +84,4 @@ function render() {
 //   else (boardSquares.children[i].textContent = '' )
     // if else statement could be good here
     //if the condition is true, then print a value to the board
-
-
-}
-}
-
 
