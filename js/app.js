@@ -30,7 +30,11 @@ function  handleClick(event) {
   console.log(squares)
   if(squares === 1){
     return X
-  }
+  } else if
+    (squares === -1){
+      return 0
+    }
+
   render()
 }
 
@@ -58,11 +62,20 @@ function render() {
   if (squares[i] === 1){
     boardSquares.children[i].textContent = 'x'
   } else {
-    (squares[i] != 1)
+    (squares[i] === -1)
     boardSquares.children[i].textContent = '0'
-  } 
-  //else (boardSquares.children[i].textContent = '' )
-    //if else statement could be good here
+  }
+
+
+
+// if  (squares[i] === null)
+// boardSquares.children[i].textContent = ''
+//   else (boardSquares.children[i].textContent = '' )
+    // if else statement could be good here
     //if the condition is true, then print a value to the board
+
+
 }
 }
+
+
