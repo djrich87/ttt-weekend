@@ -13,7 +13,6 @@ const winningCombos = [
 
 /*---------------------------- Variables (state) ----------------------------*/
 let squares, winner, turn
-// let playerTurn = [o,x]
 // let gameOutcome = [tie, winner, loser]
 const player0 = -1
 const playerX = 1
@@ -32,18 +31,15 @@ function  handleClick(event) {
   //console.log(event.target.id);
   //change the state of the squares in the handleClick function
   //string.slice- helps remove SQ
+  //handle click function is running 
   //
   const id = event.target.id.replace('sq','')
-  squares[id] = 1
-  console.log(squares)
-  if(squares === 1){
-    return X
-  } else if
-    (squares === -1){
-      return 0
-    }
-
-  render()
+  if (squares[id] === null){
+    squares[id] = turn
+    turn *= -1
+    console.log(squares)
+    render()
+  } 
 }
 
 init();
@@ -56,12 +52,12 @@ squares = [
   null, null, null]
 console.log(squares)  //these nulls refer to the game board in order
 
-  
+turn = 1
 winner = null;
 
 render()
-
 }
+
 
 function render() {
 
