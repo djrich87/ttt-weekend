@@ -3,24 +3,31 @@ const winningCombos = [
   [0, 1, 2],
   [3, 4, 5],
   [6 ,7, 8],
-  [0, 3, 6],
+  [0, 3, 5],
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
   [2, 4, 6],
 ]
 
-const player0 = -1
-const playerX = 1
 
 /*---------------------------- Variables (state) ----------------------------*/
 let squares, winner, turn
-// let gameOutcome = [tie, winner, loser] 
+// let gameOutcome = [isTie, winner, loser]
+const player0 = -1
+const playerX = 1
+//const isTie = // === no winning combos found on the board, != winningCombos
+
 
 /*------------------------ Cached Element References ------------------------*/
 const boardSquares = document.querySelector(".board")
 console.log(boardSquares);
+
+// const winnerLoser = document.querySelector("#winnerloser")
+// console.log(winnerloser)
 //Need a way to update board squares in the cached references. IN your render function, use squares - an array, to update board squares accordingly.
+
+const resetBtn = document.getElementById('resetBtn')
 
 /*----------------------------- Event Listeners -----------------------------*/
 boardSquares.addEventListener("click", handleClick);
@@ -32,16 +39,15 @@ function  handleClick(event) {
   //change the state of the squares in the handleClick function
   //string.slice- helps remove SQ
   //handle click function is running 
-  //
   const id = event.target.id.replace('sq','')
   if (squares[id] === null){
     squares[id] = turn
     turn *= -1
     console.log(squares)
     render()
+    getWinner()
   } 
 }
-
 
 init();
 
@@ -59,10 +65,6 @@ winner = null;
 render()
 }
 
-// function gameOutcome() {
-//   if (winningCombos )
-
-// }
 
 function render() {
 
@@ -78,14 +80,31 @@ function render() {
     }
   }
 }
-// if  (squares[i] === null)
-// boardSquares.children[i].textContent = ''
-//   else (boardSquares.children[i].textContent = '' )
-    // if else statement could be good here
-    //if the condition is true, then print a value to the board
+
+
 
 resetBtn.addEventListener('click', init)
   render()
 
 
-
+//we are trying to represent a winner between 1, -1
+//there can also be a tie
+//use a for statement to set up the getWinner function
+function getWinner(){
+  for (let i = 0; i < winningCombos.length; i++){
+  // const winCondition = winningCombos[i];
+  // console.log(`This is instance ${i} `)
+        const a = winningCombos[i][0]
+        const b = winningCombos[i][1]
+        const c = winningCombos[i][2]
+        // console.log(a,b, c)
+      if (squares[a] + squares[b] + squares[c] === 3){
+          console.log('X wins')
+       } else if (squares[a] + squares[b] + squares[c] === -3){
+          console.log('0 wins')
+       }
+  }
+  console.log()
+}
+init()
+// getWinner()
