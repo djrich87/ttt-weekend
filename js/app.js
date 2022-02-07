@@ -23,6 +23,7 @@ const playerX = 1
 const boardSquares = document.querySelector(".board")
 console.log(boardSquares);
 
+const message = document.getElementById("message")
 // const winnerLoser = document.querySelector("#winnerloser")
 // console.log(winnerloser)
 //Need a way to update board squares in the cached references. IN your render function, use squares - an array, to update board squares accordingly.
@@ -71,7 +72,7 @@ function render() {
   for (let i = 0; i < squares.length; i++){
   // console.log(squares[i])
     if (squares[i] === 1){
-    boardSquares.children[i].textContent = 'x'
+    boardSquares.children[i].textContent = 'X'
     } else if 
     (squares[i] === -1) {
     boardSquares.children[i].textContent = '0'
@@ -80,8 +81,6 @@ function render() {
     }
   }
 }
-
-
 
 resetBtn.addEventListener('click', init)
   render()
@@ -100,8 +99,10 @@ function getWinner(){
         // console.log(a,b, c)
       if (squares[a] + squares[b] + squares[c] === 3){
           console.log('X wins')
+          message.textContent = 'X wins';
        } else if (squares[a] + squares[b] + squares[c] === -3){
           console.log('0 wins')
+          message.textContent = '0 wins';
        }
   }
   console.log()
