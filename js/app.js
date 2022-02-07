@@ -13,17 +13,14 @@ const winningCombos = [
 
 /*---------------------------- Variables (state) ----------------------------*/
 let squares, winner, turn
-// let gameOutcome = [isTie, winner, loser]
 const player0 = -1
 const playerX = 1
 let numOfTurns
-//const isTie = // === no winning combos found on the board, != winningCombos
 
 
 /*------------------------ Cached Element References ------------------------*/
 const boardSquares = document.querySelector(".board")
 console.log(boardSquares);
-
 const message = document.getElementById("message")
 
 // const winnerLoser = document.querySelector("#winnerloser")
@@ -40,11 +37,10 @@ boardSquares.addEventListener("click", handleClick);
 function  handleClick(event) {
   //console.log(event.target.id);
   //change the state of the squares in the handleClick function
-  //string.slice- helps remove SQ
   //handle click function is running 
-  //
+  
   const id = event.target.id.replace('sq','')
-  if (squares[id] === null){
+  if (squares[id] === null && winner === null){
     squares[id] = turn
     turn *= -1
     numOfTurns += 1
@@ -88,15 +84,12 @@ function render() {
     boardSquares.children[i].textContent = ""
     }
   }
-  
-
-  
 }
 
 // function whoseTurn(){
 //   turn *= -1
-//   if (turn === 1){
-//     message.textContent = 'Turn: X'
+//  if (turn === 1){
+//  message.textContent = 'Turn: X'
 //   }
 //   else if (turn === -1){
 //     message.textContent = 'Turn: O'
@@ -120,11 +113,12 @@ function getWinner(){
     if (squares[a] + squares[b] + squares[c] === 3){
       console.log('X wins')
        message.textContent = 'X wins';
+       winner = 'X'
     } else if (squares[a] + squares[b] + squares[c] === -3){
-      console.log('O wins')
-      message.textContent = 'O wins';
+      console.log('0 wins')
+      message.textContent = '0 wins';
+      winner = '0'
     }
-    
       
   }  
   if(numOfTurns === 9 && winner === null){
@@ -134,4 +128,3 @@ function getWinner(){
   
 }
 init()
-// getWinner()
