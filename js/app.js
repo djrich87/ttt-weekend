@@ -45,6 +45,8 @@ function  handleClick(event) {
     turn *= -1
     numOfTurns += 1
     console.log(squares)
+    const turnMsg = turn === 1? 'X' : '0' //instructor helped on this
+    message.textContent = `Turn: ${turnMsg}`
     render()
     getWinner()
   } 
@@ -75,11 +77,11 @@ function render() {
   // console.log(squares[i])
     if (squares[i] === 1){
     boardSquares.children[i].textContent = 'X'
-    message.textContent = 'Turn: 0'
+    // message.textContent = 'Turn: 0'
     } else if 
     (squares[i] === -1) {
     boardSquares.children[i].textContent = '0'
-    message.textContent = 'Turn: X'
+    // message.textContent = 'Turn: X'
     } else {
     boardSquares.children[i].textContent = ""
     }
