@@ -114,8 +114,8 @@ function getWinner(){
 //   console.log(`This is the third value`, winningCombos[i][2])
     if (squares[a] + squares[b] + squares[c] === 3){
       console.log('X wins')
-       message.textContent = 'X wins';
-       winner = 'X'
+      message.textContent = 'X wins';
+      winner = 'X'
     } else if (squares[a] + squares[b] + squares[c] === -3){
       console.log('0 wins')
       message.textContent = '0 wins';
