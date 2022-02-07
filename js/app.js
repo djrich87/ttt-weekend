@@ -22,13 +22,12 @@ const playerX = 1
 /*------------------------ Cached Element References ------------------------*/
 const boardSquares = document.querySelector(".board")
 console.log(boardSquares);
-
 const message = document.getElementById("message")
+const resetBtn = document.getElementById('resetBtn')
+
 // const winnerLoser = document.querySelector("#winnerloser")
 // console.log(winnerloser)
 //Need a way to update board squares in the cached references. IN your render function, use squares - an array, to update board squares accordingly.
-
-const resetBtn = document.getElementById('resetBtn')
 
 /*----------------------------- Event Listeners -----------------------------*/
 boardSquares.addEventListener("click", handleClick);
@@ -59,10 +58,8 @@ squares = [
   null, null, null,
   null, null, null]
 console.log(squares)  //these nulls refer to the game board in order
-
 turn = 1
 winner = null;
-
 render()
 }
 
@@ -108,4 +105,5 @@ function getWinner(){
   console.log()
 }
 init()
-// getWinner()
+
+getWinner()
